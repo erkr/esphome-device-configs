@@ -1,6 +1,6 @@
 # BT proxy with additional RTTTL support on GPIO 0
 packages:
-  - !include BT-Proxy.yaml
+  - !include ESPHome/BT-Proxy.yaml
 
 # Configure the output
 output:
