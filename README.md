@@ -9,13 +9,18 @@ The common approach is to add them to ESPHome device builder
 and extended the configuration with credentials.
 (examples below)
 
-Note: when adding devices to ESPHome device builder, a
+Note 1: when adding devices to ESPHome device builder, a
 configuration file will be generated. Just add the 
 credential part to that config.
 Optional the API key can be removed from the generated config (like the examples).
 Without key, the network traffic is not encrypted, but
 the device is also easier transferred to other 
 home assistant setups.
+
+Note 2: 
+ - Use factory version to initially flash devices over USB
+ - Use OTA version for updating via the web interface
+
 
 ## Simple passive BT-Proxy:
 Example device config:
