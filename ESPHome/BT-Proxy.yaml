@@ -60,11 +60,6 @@ api:
       then:
         - esp32_ble_tracker.stop_scan:
 
-# Allow Over-The-Air updates
-ota:
-- platform: esphome
-  id: ota_esphome
-  password: "12345678"
   
 wifi:
   # ssid: !secret wifi_ssid
