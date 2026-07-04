@@ -29,7 +29,7 @@ esp32:
       CONFIG_ESP_TASK_WDT_TIMEOUT_S: "10"
 
 dashboard_import:
-  package_import_url: github//erkr/esphome-device-configs/ESPHome/BT-Proxy.yaml
+  package_import_url: github://erkr/esphome-device-configs/ESPHome/BT-Proxy.yaml
   import_full_config: false
 
 
