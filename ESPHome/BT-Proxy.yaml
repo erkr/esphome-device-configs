@@ -10,7 +10,7 @@ esphome:
   name_add_mac_suffix: true
   friendly_name: ${friendly_name}
   project:
-    name: "ErKrProjects.BT-Proxy"
+    name: "erkr.esphome-device-configs"
     version: "${version}"
 
   min_version: 2026.4.0
@@ -29,7 +29,7 @@ esp32:
       CONFIG_ESP_TASK_WDT_TIMEOUT_S: "10"
 
 dashboard_import:
-  package_import_url: https://github.com/erkr/esphome-device-configs/ESPHome/BT-Proxy.yaml
+  package_import_url: github//erkr/esphome-device-configs/ESPHome/BT-Proxy.yaml
   import_full_config: false
 
 
