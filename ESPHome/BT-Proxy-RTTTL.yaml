@@ -1,1 +1,63 @@
-# BT proxy with RTTTL support
+# BT proxy with additional RTTTL support on GPIO 0
+packages:
+  BT-Proxy: !include BT-Proxy.yaml
+
+# Configure the output
+output:
+  - platform: ledc
+    ######################################################
+    # One buzzer leg connected to GPIO0 (pin 0 esp32 c3 mini), the other to GND
+    ######################################################
+    pin: GPIO0
+    id: rtttl_out
+    max_power: 100%
+
+rtttl:
+  output: rtttl_out
+  on_finished_playback:
+    - logger.log: 'Song ended!'
+
+api:
+  actions:
+    - action: rtttl_play
+      variables:
+        song: string
+        volume: int # 1-100; 0 means unset
+      then:
+        - lambda: "id(script_rtttl_play).execute(song, volume);"
+    - action: rtttl_stop
+      then:
+        - rtttl.stop
+
+script:
+  - id: script_rtttl_play
+    parameters:
+      song: string
+      volume: int # 1-100; 0 means unset
+    mode: single
+    then:
+      - if:
+          condition:
+            rtttl.is_playing # abort current 
+          then:
+            - rtttl.stop
+            - delay: 0.1s
+      # - lambda: |-
+      #     ESP_LOGI("app", "script_rtttl_play - %s, %d", song.c_str(), volume);
+      - lambda: |-
+          float volume_f = (volume>0) ? ((float)clamp(volume, 0, 100))/100.0f : 1.0f;
+          id(rtttl_out).set_max_power(volume_f);
+      - rtttl.play:
+           rtttl: !lambda 'return (song.find('':'') == std::string::npos) ? ("song:d=16,o=5,b=100:" + song).c_str() : song.c_str();'
+
+
+button:
+  - platform: template
+    name: Buzzer Test Button
+    icon: mdi:button-pointer
+    on_press:
+       - lambda: |-
+          std::string song = "Cat:d=16,o=6,b=95:32d,32d#,32d,32d#";
+          id(script_rtttl_play).execute(song.c_str(), 100);
+ #     - rtttl.play: "Cat:d=16,o=6,b=95:32d,32d#,32d,32d#"
+    entity_category: diagnostic
