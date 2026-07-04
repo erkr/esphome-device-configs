@@ -1,6 +1,6 @@
 # BT proxy with additional RTTTL support on GPIO 0
 packages:
-  BT-Proxy: !include BT-Proxy.yaml
+  - !include BT-Proxy.yaml
 
 # Configure the output
 output:
