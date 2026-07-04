@@ -1,5 +1,23 @@
 # esphome-device-configs
 My personal configs for EspHome devices
+The release binaries are suitable for initialy
+flashing devices over usb. 
+Although fully functional when added to Home Assistant,
+these devices don't have any credentials for OTA updates
+and web access. 
+The common approach is to add them to ESPHome device builder 
+and add install credentials with extended configuration 
+(examples below)
+
+Note: when adding devices to ESPHome device builder, a
+configuration file will be generated. just add the 
+credential part from my examples. 
+Optional the API key can be removed, like the examples.
+Without these key, the traffic is not encrypted, but
+the device is also easier transferred other 
+home assistant setups
+
+
 
 ## Simple passive BT-Proxy:
 Example device config:
