@@ -15,6 +15,11 @@ esphome:
 
   min_version: 2026.4.0
 
+dashboard_import:
+  package_import_url: github://erkr/esphome-device-configs/ESPHome/BT-Proxy.yaml
+  import_full_config: false
+
+
 esp32:
   variant: esp32c3
   framework:
@@ -28,9 +33,6 @@ esp32:
       # Extend the watchdog timeout, so the device reboots if the device appears locked up for over 10 seconds.
       CONFIG_ESP_TASK_WDT_TIMEOUT_S: "10"
 
-dashboard_import:
-  package_import_url: github://erkr/esphome-device-configs/ESPHome/BT-Proxy.yaml
-  import_full_config: false
 
 
 # Enable logging
