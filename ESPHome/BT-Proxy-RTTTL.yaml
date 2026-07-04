@@ -1,7 +1,7 @@
 # BT proxy using esp32c3 with additional RTTTL support on GPIO 0
 substitutions:
-  name: bluetooth-proxy
-  friendly_name: BT-Proxy
+  name: bluetooth-proxy-rtttl
+  friendly_name: BT-Proxy-rtttl
   version: "26.7.0.0"
   device_description: ${name} made by ErKr - version ${version}.
 
