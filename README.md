@@ -1,15 +1,13 @@
 # esphome-device-configs
 My personal configs for EspHome devices.
-The release binaries are suitable for initialy
-flashing devices over usb (i.e. https://web.esphome.io)
-Although fully functional when added to Home Assistant,
-these devices don't have any credentials for OTA updates
+The release binaries are fully functional when added to Home Assistant,
+but with this firmware, these devices don't have any credentials for OTA updates
 and web access. 
 The common approach is to add them to ESPHome device builder 
 and extended the configuration with credentials.
 (examples below)
 
-Note 1: 
+### Note 1: 
 When adding devices to ESPHome device builder, a
 configuration file will be generated. Just add the 
 credential part to that config.
@@ -18,9 +16,9 @@ Without key, the network traffic is not encrypted, but
 the device is also easier transferred to other 
 home assistant setups.
 
-Note 2: 
- - Use factory version to initially flash devices over USB
- - Use OTA version for updating via the web interface
+### Note 2: 
+ - Use the firmware `factory` binary to initially flash a new device over USB [i.e ESPHome online flasher](https://web.esphome.io/)
+ - Use 'OTA' binary for updating an existing esphome device via the web interface.
 
 
 ## Simple passive BT-Proxy:
