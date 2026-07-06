@@ -1,5 +1,7 @@
+# base configuration for esp32c3 boards
 esphome:
   name: ${name}
+  comment: ${device_description}
   name_add_mac_suffix: true
   friendly_name: ${friendly_name}
   project:
