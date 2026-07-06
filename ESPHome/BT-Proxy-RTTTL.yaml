@@ -3,7 +3,7 @@ substitutions:
   name: bluetooth-proxy-rtttl
   friendly_name: BT-Proxy-rtttl
   version: "26.7.0.0"
-  device_description: BT proxy with RTTTL - made by ErKr - version ${version}.
+  device_description: BT Proxy with RTTTL - made by ErKr - version ${version}.
 
 esphome:
   name: ${name}
