@@ -3,7 +3,7 @@ substitutions:
   name: bluetooth-test
   friendly_name: BT-Test
   version: "26.7.0.0"
-  device_description: BT Test. version ${version}. Made by ErKr.
+  device_description: BT-Test. version ${version}. Made by ErKr.
 
 packages:
   - !include ./common/esp32c3.yaml
