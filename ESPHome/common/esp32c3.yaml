@@ -7,7 +7,7 @@ esphome:
   project:
     name: "erkr.esphome-device-configs"
     version: "${version}"
-  min_version: 2026.4.0
+  min_version: "${min_version}"
 
 esp32:
   variant: esp32c3
@@ -16,6 +16,7 @@ esp32:
 
 # Enable logging
 logger:
+  id: logging
   baud_rate: 0  # disable serial uart logging
   #level: VERBOSE
   
@@ -46,6 +47,7 @@ web_server:
 
 binary_sensor:
   - platform: status
+    id: status_sensor
     name: "Connection Status"
 
 sensor:
@@ -53,12 +55,15 @@ sensor:
     # The uptime sensor is extremely helpful to know if your device is rebooting
     # when it shouldn't be. This might indicate your interval-to-window timing is
     # too tight, and the window needs to be reduced.
+    id: uptime_sensor
     name: "Uptime Sensor"
     update_interval: 60s
 
 button:
   - platform: restart
+    id: restart_button
     name: Restart 
 
   - platform: factory_reset
+    id: reset_button
     name: Factory reset

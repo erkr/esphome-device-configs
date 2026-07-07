@@ -3,13 +3,15 @@ substitutions:
   name: bluetooth-test
   friendly_name: BT-Test
   version: "26.7.0.0"
-  device_description: BT Test - made by ErKr - version ${version}.
+  device_description: BT-Test. version ${version}. Made by ErKr.
+  min_version: "26.4.0"
 
 packages:
-  - !import common/esp32c3.yaml
-  - !import common/btproxy.yaml
+  - !include ./common/esp32c3.yaml
+  - !include ./common/btproxy.yaml
+  - !include ./common/rtttl.yaml
   
 dashboard_import:
   package_import_url: github://erkr/esphome-device-configs/ESPHome/test.yaml@main
   import_full_config: false
-
+  
