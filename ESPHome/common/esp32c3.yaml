@@ -16,7 +16,7 @@ esp32:
 
 # Enable logging
 logger:
-  id: logger
+  id: logger_cfg
   baud_rate: 0  # disable serial uart logging
   #level: VERBOSE
   
