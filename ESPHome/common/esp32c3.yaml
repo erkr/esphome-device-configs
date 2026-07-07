@@ -34,7 +34,7 @@ wifi:
   # ssid: !secret wifi_ssid
   # password: !secret wifi_password
   ap:
-    ssid: "BT Fallback Hotspot"
+    ssid: "${name} Hotspot"
     ap_timeout: 10min # cannot be 0, if no wifi a reset will occur after this timeout
     
 captive_portal:
