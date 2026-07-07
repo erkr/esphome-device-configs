@@ -1,9 +1,9 @@
 # my base config for a BT proxy using esp32c3
 substitutions:
-  name: bluetooth-test
-  friendly_name: BT-Test
+  name: device-test
+  friendly_name: Dev-Test
   version: "26.7.0.0"
-  device_description: BT-Test. version ${version}. Made by ErKr.
+  device_description: Dev-Test. version ${version}. Made by ErKr.
   min_version: "26.4.0"
 
 packages:
