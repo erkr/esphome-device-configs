@@ -43,10 +43,6 @@ wifi:
   ap:
     ssid: "BT Fallback Hotspot"
     ap_timeout: 10min # cannot be 0, if no wifi a reset will occur after this timeout
-  on_connect:
-    - light.turn_on: status_led_id
-  on_disconnect:
-    - light.turn_off: status_led_id
     
 captive_portal:
 
