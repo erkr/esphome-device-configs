@@ -29,14 +29,6 @@ api:
 ota:
   platform: esphome
 
-# Define status LED
-#light:
-#  - platform: status_led
-#    name: "Status LED"
-#    pin: GPIO8
-#    id: status_led_id
-#    internal: true  
-
 wifi:
   id: wifi_id
   # ssid: !secret wifi_ssid
@@ -54,6 +46,7 @@ web_server:
     # password: !secret web_server_password
 
 status_led:
+  id: status_led_id
   pin:
     number: GPIO8
     inverted: true    
