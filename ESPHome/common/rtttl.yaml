@@ -49,6 +49,7 @@ script:
 
 button:
   - platform: template
+    id: buzzer_test_button
     name: Buzzer Test Button
     icon: mdi:button-pointer
     on_press:
