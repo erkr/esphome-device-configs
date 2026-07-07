@@ -52,7 +52,12 @@ web_server:
   # auth:
     # username: !secret web_server_username
     # password: !secret web_server_password
-    
+
+status_led:
+  pin:
+    number: GPIO8
+    inverted: true    
+
 binary_sensor:
   - platform: status
     id: status_sensor
