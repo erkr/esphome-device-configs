@@ -22,21 +22,21 @@ logger:
   
 mdns:
   disabled: false
-
   
 # Enable Home Assistant API
 api:
 
 ota:
   platform: esphome
-  
+
 wifi:
+  id: wifi_id
   # ssid: !secret wifi_ssid
   # password: !secret wifi_password
   ap:
     ssid: "BT Fallback Hotspot"
     ap_timeout: 10min # cannot be 0, if no wifi a reset will occur after this timeout
-
+    
 captive_portal:
 
 web_server:
@@ -44,6 +44,12 @@ web_server:
   # auth:
     # username: !secret web_server_username
     # password: !secret web_server_password
+
+status_led:
+  id: status_led_id
+  pin:
+    number: GPIO8
+    inverted: true    
 
 binary_sensor:
   - platform: status
@@ -67,3 +73,5 @@ button:
   - platform: factory_reset
     id: factory_reset_button
     name: Factory reset
+    disabled_by_default: true
+    
