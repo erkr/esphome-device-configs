@@ -22,7 +22,6 @@ logger:
   
 mdns:
   disabled: false
-
   
 # Enable Home Assistant API
 api:
@@ -44,6 +43,14 @@ web_server:
   # auth:
     # username: !secret web_server_username
     # password: !secret web_server_password
+
+# Define status LED
+light:
+  - platform: status_led
+    name: "Status LED"
+    pin: GPIO8
+    id: status_led_id
+    internal: true  
 
 binary_sensor:
   - platform: status
