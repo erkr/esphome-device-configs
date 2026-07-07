@@ -30,12 +30,12 @@ ota:
   platform: esphome
 
 # Define status LED
-light:
-  - platform: status_led
-    name: "Status LED"
-    pin: GPIO8
-    id: status_led_id
-    internal: true  
+#light:
+#  - platform: status_led
+#    name: "Status LED"
+#    pin: GPIO8
+#    id: status_led_id
+#    internal: true  
 
 wifi:
   id: wifi_id
