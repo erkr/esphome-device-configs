@@ -3,7 +3,7 @@ substitutions:
   name: bluetooth-proxy
   friendly_name: BT-Proxy
   version: "26.7.0.1"
-  device_description: BT-Test. version ${version}. Made by ErKr.
+  device_description: BT-Proxy. version ${version}. Made by ErKr.
   min_version: "26.4.0"
 
 packages:

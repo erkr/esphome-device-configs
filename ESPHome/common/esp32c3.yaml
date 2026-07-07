@@ -16,7 +16,7 @@ esp32:
 
 # Enable logging
 logger:
-  id: logging
+  id: logger_cfg
   baud_rate: 0  # disable serial uart logging
   #level: VERBOSE
   
@@ -65,5 +65,5 @@ button:
     name: Restart 
 
   - platform: factory_reset
-    id: reset_button
+    id: factory_reset_button
     name: Factory reset
