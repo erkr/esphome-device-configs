@@ -4,6 +4,7 @@ substitutions:
   friendly_name: BT-Test
   version: "26.7.0.0"
   device_description: BT-Test. version ${version}. Made by ErKr.
+  min_version: "26.4.0"
 
 packages:
   - !include ./common/esp32c3.yaml
