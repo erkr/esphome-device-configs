@@ -6,8 +6,8 @@ substitutions:
   device_description: BT Test. version ${version}. Made by ErKr.
 
 packages:
-  - !include common/esp32c3.yaml
-  - !include common/btproxy.yaml
+  - !include ./common/esp32c3.yaml
+  - !include ./common/btproxy.yaml
   
 dashboard_import:
   package_import_url: github://erkr/esphome-device-configs/ESPHome/test.yaml@main
