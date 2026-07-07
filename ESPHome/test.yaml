@@ -8,3 +8,8 @@ substitutions:
 packages:
   - !import common/esp32c3.yaml
   - !import common/btproxy.yaml
+  
+dashboard_import:
+  package_import_url: github://erkr/esphome-device-configs/ESPHome/test.yaml@main
+  import_full_config: false
+
