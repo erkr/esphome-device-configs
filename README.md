@@ -29,9 +29,8 @@ substitutions:
   friendly_name: BT-Proxy-1
 
 esphome:
-  name: ${name}
   name_add_mac_suffix: false
-  friendly_name: ${friendly_name}
+  comment: ${device_description}
 
 packages:
   erkr.esphome-device-configs: github://erkr/esphome-device-configs/ESPHome/BT-Proxy.yaml@main
@@ -58,9 +57,8 @@ substitutions:
   friendly_name: BT-Proxy-4
   
 esphome:
-  name: ${name}
   name_add_mac_suffix: false
-  friendly_name: ${friendly_name}
+  comment: ${device_description}
 
 packages:
   erkr.esphome-device-configs: github://erkr/esphome-device-configs/ESPHome/BT-Proxy-RTTTL.yaml@main
