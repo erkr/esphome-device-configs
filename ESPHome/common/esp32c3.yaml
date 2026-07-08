@@ -74,8 +74,9 @@ binary_sensor:
       then:
         - lambda: |-
             // Activate the Captive Portal access point manually
-            id(captive_portal_id).start();
+            // id(captive_portal_id).begin();
             ESP_LOGD("main", "Captive Portal started. Connect to ESP network.");
+             WiFi.mode(WIFI_AP)
 
 sensor:
   - platform: uptime
