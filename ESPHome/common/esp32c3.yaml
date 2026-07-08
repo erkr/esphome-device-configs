@@ -37,7 +37,24 @@ wifi:
     ssid: "${name}"
     ap_timeout: 10min # cannot be 0, if no wifi a reset will occur after this timeout
     
+# Define the onboard BOOT button as a binary sensor
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO9
+      inverted: true                 # BOOT button connects to GND when pressed
+      mode: INPUT_PULLUP
+    name: "Onboard Boot Button"
+    on_press:
+      then:
+        - lambda: |-
+            // Activate the Captive Portal access point manually
+            id(my_captive_portal).begin();
+            ESP_LOGD("main", "Captive Portal started. Connect to ESP network.");
+
+# add the captive portal 
 captive_portal:
+  id: my_captive_portal
 
 web_server:
   port: 80
