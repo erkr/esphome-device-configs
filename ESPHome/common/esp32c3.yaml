@@ -60,7 +60,19 @@ binary_sensor:
   - platform: status
     id: status_sensor
     name: "Connection Status"
-
+ 
+  - platform: gpio   # Define the onboard BOOT button as a binary sensor
+    pin:
+      number: GPIO9
+      inverted: true              
+      mode: INPUT_PULLUP
+    name: "Onboard Boot Button"
+    id: onboard_boot_button
+    internal: true
+    on_press:
+      then:
+        - button.press: factory_reset_button
+ 
 sensor:
   - platform: uptime
     # The uptime sensor is extremely helpful to know if your device is rebooting
