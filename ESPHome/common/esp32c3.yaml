@@ -45,6 +45,8 @@ binary_sensor:
       inverted: true                 # BOOT button connects to GND when pressed
       mode: INPUT_PULLUP
     name: "Onboard Boot Button"
+    id: onboard_boot_button
+    internal: true
     on_press:
       then:
         - lambda: |-
