@@ -1,6 +1,6 @@
 # base configuration for esp32c3 boards
 # enables status led (blink when no connection)
-# press boot button to start captive portal
+# press boot button to perfrom a factory reset
 esphome:
   name: ${name}
   comment: ${device_description}
@@ -59,8 +59,7 @@ status_led:
 binary_sensor:
   - platform: status
     id: status_sensor
-    name: "Connection Status"
- 
+    name: "Connection Status" 
   - platform: gpio   # Define the onboard BOOT button as a binary sensor
     pin:
       number: GPIO9
