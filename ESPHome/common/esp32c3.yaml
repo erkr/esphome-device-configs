@@ -1,4 +1,6 @@
 # base configuration for esp32c3 boards
+# enables status led (blink when no connection)
+# press boot button to perfrom a factory reset
 esphome:
   name: ${name}
   comment: ${device_description}
@@ -37,7 +39,10 @@ wifi:
     ssid: "${name}"
     ap_timeout: 10min # cannot be 0, if no wifi a reset will occur after this timeout
     
+
+# add the captive portal 
 captive_portal:
+  id: captive_portal_id
 
 web_server:
   port: 80
@@ -54,8 +59,19 @@ status_led:
 binary_sensor:
   - platform: status
     id: status_sensor
-    name: "Connection Status"
-
+    name: "Connection Status" 
+  - platform: gpio   # Define the onboard BOOT button as a binary sensor
+    pin:
+      number: GPIO9
+      inverted: true              
+      mode: INPUT_PULLUP
+    name: "Onboard Boot Button"
+    id: onboard_boot_button
+    internal: true
+    on_press:
+      then:
+        - button.press: factory_reset_button
+ 
 sensor:
   - platform: uptime
     # The uptime sensor is extremely helpful to know if your device is rebooting
