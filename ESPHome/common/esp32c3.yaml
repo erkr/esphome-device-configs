@@ -1,6 +1,6 @@
 # base configuration for esp32c3 boards
 # enables status led (blink when no connection)
-# use boot button to start portal
+# press boot button to start captive portal
 esphome:
   name: ${name}
   comment: ${device_description}
@@ -60,23 +60,6 @@ binary_sensor:
   - platform: status
     id: status_sensor
     name: "Connection Status"
-
-  # Define the onboard BOOT button as a binary sensor
-  - platform: gpio
-    pin:
-      number: GPIO9
-      inverted: true                 # BOOT button connects to GND when pressed
-      mode: INPUT_PULLUP
-    name: "Onboard Boot Button"
-    id: onboard_boot_button
-    internal: true
-    on_press:
-      then:
-        - lambda: |-
-            // Activate the Captive Portal access point manually
-            // id(captive_portal_id).begin();
-            ESP_LOGD("main", "Captive Portal started. Connect to ESP network.");
-             //WiFi.mode(WIFI_AP)
 
 sensor:
   - platform: uptime
