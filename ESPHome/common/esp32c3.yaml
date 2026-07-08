@@ -42,7 +42,7 @@ wifi:
 
 # add the captive portal 
 captive_portal:
-  id: my_captive_portal
+  id: captive_portal_id
 
 web_server:
   port: 80
@@ -74,7 +74,7 @@ binary_sensor:
       then:
         - lambda: |-
             // Activate the Captive Portal access point manually
-            id(my_captive_portal).begin();
+            id(captive_portal_id).start();
             ESP_LOGD("main", "Captive Portal started. Connect to ESP network.");
 
 sensor:
