@@ -1,93 +1,14 @@
 # base configuration for esp32c3 boards
-# enables status led (blink when no connection)
-# press boot button to perfrom a factory reset
-esphome:
-  name: ${name}
-  comment: ${device_description}
-  name_add_mac_suffix: true
-  friendly_name: ${friendly_name}
-  project:
-    name: "erkr.esphome-device-configs"
-    version: "${version}"
-  min_version: "${min_version}"
 
+substitutions:
+  LED_GPIO: GPIO8
+  BOOT_GPIO: GPIO9
+  
 esp32:
   variant: esp32c3
   framework:
     type: esp-idf
 
-# Enable logging
-logger:
-  id: logger_cfg
-  baud_rate: 0  # disable serial uart logging
-  #level: VERBOSE
-  
-mdns:
-  disabled: false
-  
-# Enable Home Assistant API
-api:
-
-ota:
-  platform: esphome
-
-wifi:
-  id: wifi_id
-  # ssid: !secret wifi_ssid
-  # password: !secret wifi_password
-  ap:
-    ssid: "${name}"
-    ap_timeout: 10min # cannot be 0, if no wifi a reset will occur after this timeout
-    
-
-# add the captive portal 
-captive_portal:
-  id: captive_portal_id
-
-web_server:
-  port: 80
-  # auth:
-    # username: !secret web_server_username
-    # password: !secret web_server_password
-
-status_led:
-  id: status_led_id
-  pin:
-    number: GPIO8
-    inverted: true    
-
-binary_sensor:
-  - platform: status
-    id: status_sensor
-    name: "Connection Status" 
-  - platform: gpio   # Define the onboard BOOT button as a binary sensor
-    pin:
-      number: GPIO9
-      inverted: true              
-      mode: INPUT_PULLUP
-    name: "Onboard Boot Button"
-    id: onboard_boot_button
-    internal: true
-    on_press:
-      then:
-        - button.press: factory_reset_button
- 
-sensor:
-  - platform: uptime
-    # The uptime sensor is extremely helpful to know if your device is rebooting
-    # when it shouldn't be. This might indicate your interval-to-window timing is
-    # too tight, and the window needs to be reduced.
-    id: uptime_sensor
-    name: "Uptime Sensor"
-    update_interval: 60s
-
-button:
-  - platform: restart
-    id: restart_button
-    name: Restart 
-
-  - platform: factory_reset
-    id: factory_reset_button
-    name: Factory reset
-    disabled_by_default: true
-    
+packages:
+  - !include ./general.yaml  # general esphome settings and enable API 
+  - !include ./wifi_board.yaml  # enable Wifi board prefered settings (mdns, LED, boot button, OTA, WebSever)

@@ -2,7 +2,7 @@
 substitutions:
   name: bluetooth-proxy-rtttl
   friendly_name: BT-Proxy-rtttl
-  version: "26.7.0.1"
+  version: "26.7.0.2"
   device_description: BT Proxy with RTTTL. v${version}. Made by ErKr.
   min_version: "26.4.0"
 

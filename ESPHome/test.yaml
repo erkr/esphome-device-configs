@@ -2,7 +2,7 @@
 substitutions:
   name: device-test
   friendly_name: Dev-Test
-  version: "26.7.0.0"
+  version: "26.7.0.2"
   device_description: Dev-Test. version ${version}. Made by ErKr.
   min_version: "26.4.0"
 

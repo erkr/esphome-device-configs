@@ -1,0 +1,12 @@
+esphome:
+  name: ${name}
+  comment: ${device_description}
+  name_add_mac_suffix: true
+  friendly_name: ${friendly_name}
+  project:
+    name: "erkr.esphome-device-configs"
+    version: "${version}"
+  min_version: "${min_version}"
+
+# Enable Home Assistant API
+api:
