@@ -22,7 +22,7 @@ wifi:
   # ssid: !secret wifi_ssid
   # password: !secret wifi_password
   ap:
-    ssid: "${name}"
+    #ssid: 
     ap_timeout: 1d # cannot be 0, if wifi is configured, but board fails to connect a reset into AP will occur after this timeout
     
 
