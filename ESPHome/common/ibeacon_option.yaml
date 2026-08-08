@@ -1,0 +1,14 @@
+# additional BT config for iBeacon advertising
+
+substitutions:
+  beacon_uuid: ad59974e-b363-4aa2-9454-427066e1b453
+  beacon_major: 1
+  beacon_minor: 1  # keep this unique within a fleet of similar devices
+	
+esp32_ble_beacon:
+  type: iBeacon
+  uuid: ${beacon_uuid}
+  major: $beacon_major
+  minor: $beacon_minor
+  min_interval: 500ms
+  max_interval: 1000ms
